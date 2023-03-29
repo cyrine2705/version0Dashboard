@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Poppins-Normal';
+    src: url(src/font/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url(src/font/Poppins-Bold.ttf);
+}
+@font-face {
+    font-family: 'Poppins-SBold';
+    src: url(src/font/Poppins-SemiBold.ttf);
+}
+@font-face {
+    font-family: 'Poppins-Italic';
+    src: url(src/font/Poppins-Italic.ttf);
+}
+:root {
+    --darkPurple:#3A1078;
+    --lightPurple :#4E31AA;
+    --darkBlue:#2F58CD;
+    --lightBlue:#3795BD;
+}
+@font-face {
+    font-family: 'Poppins-Light';
+    src: url(src/font/Poppins-Light.ttf);
+}

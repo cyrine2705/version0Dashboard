@@ -1,0 +1,63 @@
+
+
+<div *ngIf="showNotifications">
+    <div class="notification-container toggle-notification">
+         <div class="notif">
+             <h2>Notification Title</h2>
+             <p>This is just a test for notification descreption</p>
+         </div>
+         <div class="notif">
+             <h2>Notification Title</h2>
+             <p>This is just a test for notification descreption</p>
+         </div>
+         <div class="notif">
+             <h2>Notification Title</h2>
+             <p>This is just a test for notification descreption</p>
+         </div>
+     </div>
+ </div>
+ <div style="width:100%;background-color: brown;" >
+     <div class="container">
+         <aside>
+             <div class="logo-container">
+                 <img src="assets/icons/logo.png" alt="" class="icon active">
+                 <h3>Bee</h3>
+             </div>
+             <div class="list-container">
+                <div class="list-item " [ngClass]="{'active-item': element === selectedElement}"    *ngFor="let element of elements" (click)="selectElement(element)">
+                    <img [src]="element.imageUrl" alt="" class="list-icon " />
+                    <h4r routerLink='{{element.place}}'>{{element.name}}</h4r>
+                  </div>
+             </div>
+             <div class="account-container">
+                 <img src="assets/images/user.jpg" alt="" class="icon-user">
+                 <div class="account">
+                     <h3>Nedra Guessmi</h3>
+                     <h5>Human Ressource</h5>
+                 </div>
+             </div>
+             <div class="logout">
+                 <img src="assets/icons/logout.png" alt="" class="logout-icon">
+                 <h3>Logout</h3>
+             </div>
+         </aside>
+         <main>
+            <div class="header">
+                <div class="burger">
+                    <img src="assets/icons/burger.png" alt="" class="burger">
+                </div>
+                <div class="date">
+                    <img src="assets/icons/calender.png" alt="" class="icon">
+                    <h3>25 Feb.</h3>
+                </div>
+                <input type="search" name="" id="" placeholder="Search" >
+                <div class="notification" (click)="show()">
+                    <img src="assets/icons/notification.png" alt="" class="notif-icon">
+                </div>
+            </div>
+            <hr>
+          <router-outlet></router-outlet>
+        </main>
+        </div>
+
+         
