@@ -1,0 +1,47 @@
+<h2 class="mt">Add an Event</h2>
+<div class="adminContainer">
+    <div class="addEvent">
+        <div class="input-container input-container-event" >
+            <div class="input">
+                <label for="">Subject*</label>
+                <input type="text" value="" class="input-edit" placeholder="Write down the subject">
+            </div>
+            <div class="input">
+                <label for="">Event details*</label>
+                <input type="text" value="" class="input-edit" placeholder="Describe the event">
+            </div>
+            
+
+        </div>
+        <div class="input-container">
+            <div class="input">
+                <label for="">Date*</label>
+                <input type="date" value="" class="input-edit" placeholder="DD/HH/MM">
+            </div>
+            <div class="input">
+                <label for="">For*</label>
+                <select name="" id="" class="input-edit">
+                    <option value="" selected>Everyone</option>
+                    <option value="" >Developers</option>
+                    <option value="" >RH</option>
+                    <option value="">Workers</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-container input-container-event">
+            <div class="input">
+                <label for="">Mode*</label>
+                <select name="" id="selectMode" class="input-edit" onchange="showZoom()">
+                    <option value="" selected>Presentielle</option>
+                    <option value="" >Online</option>
+                </select>
+            </div>
+            <div class="input input-zoom" hidden>
+                <label for="">Zoom Link*</label>
+                <input type="text" name="" id="" value="" class="input-edit"
+                    placeholder="Paste the meet link here">
+            </div>
+        </div>
+        <button class="update-button show-more">Add</button>
+    </div>
+</div>

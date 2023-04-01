@@ -14,6 +14,14 @@ import { PresenceComponent } from './dashboard/presence/presence.component';
 import { EmployeComponent } from './dashboard/employe/employe.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HashLocationStrategy, LocationStrategy, NgOptimizedImage, provideImgixLoader } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import { MatCardModule } from "@angular/material/card";
+import { MatButtonModule } from "@angular/material/button";
+import { ForgotPasswordComponent } from './Pages/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './Pages/login/reset-password/reset-password.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -28,12 +36,22 @@ import { HashLocationStrategy, LocationStrategy, NgOptimizedImage, provideImgixL
     CongesComponent,
     PresenceComponent,
     EmployeComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DashboardModule
+    DashboardModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule, 
+    MatCardModule,
+    MatButtonModule ,MatFormFieldModule,
+    HttpClientModule
+
+ 
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy,  }

@@ -1,22 +1,65 @@
 <h2 class="mt">Employee | Nedra Guessmi</h2>
-<div class="profile-container" >
+<div class="profile-container">
     <div class="left-profile">
-        <img src="../assets/Images/user.jpg" alt="" class="icon-profile">
+        <img src="assets/images/user.jpg" alt="" class="icon-profile">
         <div class="profile-main-infos">
             <h2>Nedra Guessmi</h2>
             <h4>Developer</h4>
+            <div class="btnHolder">
+                <button class="btnNotify">Notfiy</button>
+                <button class="btnDanger">Alert</button>
+            </div> 
+            
+            <h4>General info</h4>
+            <div class="infoGeneral">
+                <h5>Employment Type</h5>
+                <p>Remote</p>
+            </div>
+            <div class="infoGeneral">
+                <h5>Working Since</h5>
+                <p>29/09/23</p>
+            </div>
+            <div class="infoGeneral">
+                <h5>Salary</h5>
+                <p>1100$</p>
+            </div>
+            <hr>
+            <h4 style="margin-top: 8px;">Shifts</h4>
+            <div class="infoGeneral">
+                <h5>Start</h5>
+                <p>8:00AM</p>
+            </div>
+            <div class="infoGeneral">
+                <h5>End</h5>
+                <p>5:00PM</p>
+            </div>
+           
         </div>
     </div>
     <div class="right-profile">
         <div class="action-container">
-            <img src="../assets/icons/edit.png" alt="" class="icon edit-icon">
-            <img src="../assets/icons/delete.png" alt="" class="icon">
+            <img src="../src/icons/edit.png" alt="" class="icon edit-icon">
+            <img src="../src/icons/delete.png" alt="" class="icon delete">
         </div>
         <h2>Options</h2>
         <div class="input-container">
             <div class="input">
                 <label for="">Full Name</label>
                 <input type="text" value="Nedra Guessmi" disabled class="input-edit">
+            </div>
+            <div class="input">
+                <label for="">Sexe</label>
+                <select name="" id="" disabled class="input-edit">
+                    <option value="">Homme</option>
+                    <option value="" selected>Femme</option>
+                </select>
+            </div>
+           
+        </div>
+        <div class="input-container">
+            <div class="input">
+                <label for="">Birth Date</label>
+                <input type="date" value="" disabled class="input-edit">
             </div>
             <div class="input">
                 <label for="">Role</label>
@@ -38,16 +81,81 @@
                 <input type="text" name="" id="" value="92-999-999" disabled class="input-edit"> 
             </div>
         </div>
-        <div class="input-container">
+        <div class="input-container hidden-input">
             <div class="input">
-                <label for="">Birth Date</label>
-                <input type="text" value="28/06/03" disabled class="input-edit">
+                <label for="">Salary</label>
+                <input type="text" value="1100" disabled class="input-edit">
+            </div>
+            <div class="input">
+                <label for="">Employment Type</label>
+                <input type="text" name="" id="" value="Remote" class="input-edit" disabled>
+            </div>
+        </div>
+        <div class="input-container hidden-input" >
+            <div class="input">
+                <label for="">CNAM</label>
+                <input type="text" value="154215421542" disabled class="input-edit">
             </div>
             <div class="input">
                 <label for="">CIN</label>
-                <input type="password" name="" id="" value="14292524" disabled>
+                <input type="password" name="" id="" value="92-999-999" disabled class=""> 
             </div>
         </div>
+        <div class="input-container hidden-input">
+            <div class="input">
+                <label for="">Country</label>
+                <input type="text" value="Tunisie" disabled class="input-edit">
+            </div>
+            <div class="input">
+                <label for="">State</label>
+                <input type="text" name="" id="" value="Bèja" class="input-edit" disabled>
+            </div>
+        </div>
+        <div class="input-container hidden-input">
+            <div class="input">
+                <label for="">Adress 1</label>
+                <input type="text" value="City Al Bustan" disabled class="input-edit">
+            </div>
+            <div class="input">
+                <label for="">Adress 2</label>
+                <input type="text" name="" id="" value="City Al Bustan" class="input-edit" disabled>
+            </div>
+        </div>
+        <div class="input-container hidden-input" >
+            <div class="input">
+                <label for="">Conge Credit</label>
+                <input type="number" value="20" disabled class="input-edit">
+            </div>
+            <div class="input">
+                <label for="">Status</label>
+                <select name="" id="" disabled class="input-edit">
+                    <option value="celib">Celibbataire</option>
+                    <option value="mar">Married</option>
+                    <option value="">Na3rech</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-container hidden-input" >
+            <div class="input">
+                <label for="">Kids</label>
+                <input type="number" value="0" disabled class="input-edit">
+            </div>
+            <div class="input">
+                <label for="">Password</label>
+                <input type="password" value="28/06/03" disabled class="input-edit">
+            </div>
+        </div>
+        <div class="input-container hidden-input" >
+            <div class="input">
+                <label for="">Start Time</label>
+                <input type="time" value="0" disabled class="input-edit">
+            </div>
+            <div class="input">
+                <label for="">End Time</label>
+                <input type="time" value="28/06/03" disabled class="input-edit">
+            </div>
+        </div>
+        <button class="update-button show-more">Show More</button>
         <button class="update-button">Update</button>
     </div>
 </div>

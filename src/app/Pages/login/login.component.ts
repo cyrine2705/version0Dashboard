@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgOptimizedImage } from '@angular/common'
+import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +10,19 @@ import { NgOptimizedImage } from '@angular/common'
 
 })
 export class LoginComponent {
-  constructor(private router: Router){
+  constructor(private router: Router,private dialog : MatDialog){
     
 
   }
   login(){
     this.router.navigate(['navbar'])
   }
+  forgot() {
+
+ this.router.navigate(['forgotPassword']);
+}
+
+ 
+  
 
 }

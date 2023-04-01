@@ -15,6 +15,8 @@ export class NavBarComponent {
     { id: 4, name: 'Material', imageUrl: "../assets/icons/material.png", place: 'material' },
     { id: 5, name: 'Leaves', imageUrl: "../assets/icons/conge.png", place: 'conges' },
     { id: 6, name: 'Reclamations', imageUrl: "../assets/icons/reclamation.png", place: 'reclamations' },
+    { id: 7, name: 'Events', imageUrl: "../assets/icons/event.png", place: 'events' },
+    { id: 8, name: 'Stats', imageUrl: "../assets/icons/stats.png", place: 'stats' },
   ];
   showNotifications: boolean=false;
   selectedElement: any;
