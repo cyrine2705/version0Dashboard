@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { EmployesService } from 'src/app/services/employes.service';
 
 @Component({
   selector: 'app-employe',
@@ -7,11 +9,18 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./employe.component.css']
 })
 export class EmployeComponent {
-  idProduit:number=15;
-  constructor(private activatedRoute:ActivatedRoute, private router:Router) { }
+  id:String;
+  employee: User;
+  constructor(private activatedRoute:ActivatedRoute, private router:Router,private employesService:EmployesService) { }
 
   ngOnInit(): void {
-    this.idProduit = this.activatedRoute.snapshot.params['id'];
+   this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getEmployee(this.id);
+  }
+
+  getEmployee(id: String): void {
+    this.employesService.getEmploye(id)
+      .subscribe(employee => this.employee = employee);
   }
  retour(){
   this.router.navigate(['/employes']);

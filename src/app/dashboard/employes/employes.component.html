@@ -2,41 +2,24 @@
           
                 <table>
                     <tr>
+                        <th>Picture</th>
                         <th>Full-name</th>
                         <th>Role</th>
                         <th>Mail</th>
                         <th>Phone Number</th>
                         <th>Actions</th>
                     </tr>
-                    <tr>
-                        <td><a style="color:blue" (click)="onclick()">Nedra Ghdamsi</a></td>
-                        <td>Developper</td>
-                        <td>Nedra@gmail.com</td>
-                        <td>99-999-999</td>
+                    <tr *ngFor="let employee of employees">
+                        <td><img [src]="employee.image" class="icon-user"></td>
+                        <td>"{{ employee.firstName }} {{ employee.lastName }}"</td>
+                        <td>Employee </td>
+                        <td>{{ employee.email }}</td>
+                        <td>{{employee.phoneNumber1}}</td>
                         <td class="action-table">
-                            <img src="../assets/icons/edit.png" alt="" class="icon" (click)="onclick()">
-                            <img src="../assets/icons/delete.png" alt="" class="icon" (click)="onclick()">
-                        </td>            
-                    </tr>
-                    <tr>
-                        <td><a style="color:blue" (click)="onclick()">Nedra Ghdamsi</a></td>
-                        <td>Developper</td>
-                        <td>Nedra@gmail.com</td>
-                        <td>99-999-999</td>
-                        <td class="action-table">
-                            <img src="../assets/icons/edit.png" alt="" class="icon" (click)="onclick()">
-                            <img src="../assets/icons/delete.png" alt="" class="icon" (click)="onclick()">
-                        </td>            
-                    </tr>
-                    <tr>
-                        <td><a style="color:blue" (click)="onclick()">Nedra Ghdamsi</a></td>
-                        <td>Developper</td>
-                        <td>Nedra@gmail.com</td>
-                        <td>99-999-999</td>
-                        <td class="action-table">
-                            <img src="../assets/icons/edit.png" alt="" class="icon" (click)="onclick()">
-                            <img src="../assets/icons/delete.png" alt="" class="icon" (click)="onclick()">
-                        </td>            
-                    </tr>
+                            <img src="../assets/icons/edit.png" alt="" class="icon" (click)="onclick(employee.id)">
+                            <img src="../assets/icons/delete.png" alt="" class="icon" (click)="onclick(employee.id)">
+                        </td>  
+                      </tr>
+                 
                 </table>
             

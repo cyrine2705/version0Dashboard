@@ -2,8 +2,8 @@ import { Time } from "@angular/common"
 
 export class User {
     id?:String
- lastName?:String
  firstName?:String
+ lastName?:String
  email?:String
 birthDate?:Date
 adress?:String

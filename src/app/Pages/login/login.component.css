@@ -126,8 +126,17 @@ body {
     -ms-transition: 0.2s;
     -o-transition: 0.2s;
 }
-.sign-in:hover {
+.sign-in:hover:not([disabled]) {
     box-shadow: 0 0 20px 1px var(--lightPurple);
+}
+
+.sign-in:disabled {
+    opacity: 0.5; /* reduce opacity of disabled button */
+    cursor: not-allowed; /* change cursor to not-allowed */
+}
+
+.sign-in:disabled:hover {
+    box-shadow: none; /* remove hover effect on disabled button */
 }
 .error {
     border:1px solid  red;

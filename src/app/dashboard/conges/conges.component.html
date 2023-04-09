@@ -1,34 +1,27 @@
 <h2 class="mt">Conge Requests</h2>
-
 <div class="conge-container ">
-    <div class="congeContainer">
-        <h3>Conge de maladie</h3>
+
+    <div *ngFor="let c of leavesWithEmployee" class="congeContainer">
+        
+        <h3>{{c.type}}</h3>
         <div class="time">
             <img src="assets/icons/clock.png" alt="" class="icon-min-size">
-            <p>2 days</p>
+            <p>{{nbrJours(c.startDate,c.endDate)}} days</p>
             <div class="status">
-                <!-- x<5 Days Left -->
-                <!-- <div class="outOfRange status-child ">
-                    <p>Warning</p>
-                </div> -->
-                <!-- x>15 days Left -->
-                <!-- <div class="safe status-child ">
-                    <p>Safe</p>
-                </div> -->
-                <!-- 10<x<15 Days left -->
+          
                 <div class="almost status-child ">
-                    <p>Few Left</p>
+                    <p>{{c.employee.nbConge}} days left</p>
                 </div> 
             </div>
         </div>
        
-        <p>Slm wlhy mal9it manekteb w haka laurem ely tgeneri ktiba mahabetech te5dem w be5el bech n7el google , donc hay fa9ra mel 7it.</p>
+        <p>{{c.description}}</p>
         <hr>
         <div class="account-container">
-            <img src="assets/images/user.jpg" alt="" class="icon-user">
+            <img [src]="c.employee.image" alt="" class="icon-user">
             <div class="account">
-                <h3>Nedra Guessmi</h3>
-                <h5>Human Ressource</h5>
+                <h3>{{c.employee.firstName}} {{c.employee.lastName}}</h3>
+                <h5>Employee</h5>
             </div>
         </div>
         
@@ -40,138 +33,10 @@
         <h5>Proof :</h5>
         <div class="proof">
             <p>Filename.pdf</p>
-            <img src="assets/icons/download.png" alt="" class="icon">
+            <a [href]="c.proof" target="_blank">  <img src="assets/icons/download.png" alt="" class="icon"> </a>
+        </div>
         </div>
 
     </div>
-    <div class="congeContainer">
-        <h3>Conge de maladie</h3>
-        <div class="time">
-            <img src="assets/icons/clock.png" alt="" class="icon-min-size">
-            <p>2 days</p>
-            <div class="status">
-                <!-- x<5 Days Left -->
-                <!-- <div class="outOfRange status-child ">
-                    <p>Warning</p>
-                </div> -->
-                <!-- x>15 days Left -->
-                <div class="safe status-child ">
-                    <p>Safe</p>
-                </div>
-                <!-- 10<x<15 Days left -->
-                <!-- <div class="almost status-child ">
-                    <p>Few Left</p>
-                </div>  -->
-            </div>
-        </div>
-       
-        <p>Slm wlhy mal9it manekteb w haka laurem ely tgeneri ktiba mahabetech te5dem w be5el bech n7el google , donc hay fa9ra mel 7it.</p>
-        <hr>
-        <div class="account-container">
-            <img src="assets/images/user.jpg" alt="" class="icon-user">
-            <div class="account">
-                <h3>Nedra Guessmi</h3>
-                <h5>Human Ressource</h5>
-            </div>
+   
 
-        </div>
-        <div class="btnHolder" style="justify-content: space-around; text-align: center;">
-            <button class="btnNotify">Accept</button>
-            <button class="btnDanger">Refuse</button>
-        </div> 
-        <hr>
-        <h5>Proof :</h5>
-        <div class="proof">
-            <p>Filename.pdf</p>
-            <img src="assets/icons/download.png" alt="" class="icon">
-        </div>
-        
-    </div>
-    <div class="congeContainer">
-        <h3>Conge de maladie</h3>
-        <div class="time">
-            <img src="assets/icons/clock.png" alt="" class="icon-min-size">
-            <p>2 days</p>
-            <div class="status">
-                <!-- x<5 Days Left -->
-                <!-- <div class="outOfRange status-child ">
-                    <p>Warning</p>
-                </div> -->
-                <!-- x>15 days Left -->
-                <div class="safe status-child ">
-                    <p>Safe</p>
-                </div>
-                <!-- 10<x<15 Days left -->
-                <!-- <div class="almost status-child ">
-                    <p>Few Left</p>
-                </div>  -->
-            </div>
-        </div>
-       
-        <p>Slm wlhy mal9it manekteb w haka laurem ely tgeneri ktiba mahabetech te5dem w be5el bech n7el google , donc hay fa9ra mel 7it.</p>
-        <hr>
-        <div class="account-container">
-            <img src="assets/images/user.jpg" alt="" class="icon-user">
-            <div class="account">
-                <h3>Nedra Guessmi</h3>
-                <h5>Human Ressource</h5>
-            </div>
-            
-        </div>
-        <div class="btnHolder" style="justify-content: space-around; text-align: center;">
-            <button class="btnNotify">Accept</button>
-            <button class="btnDanger">Refuse</button>
-        </div> 
-        <hr>
-        <h5>Proof :</h5>
-        <div class="proof">
-            <p>Filename.pdf</p>
-            <img src="assets/icons/download.png" alt="" class="icon">
-        </div>
-        
-    </div>
-    <div class="congeContainer">
-        <h3>Conge de maladie</h3>
-        <div class="time">
-            <img src="assets/icons/clock.png" alt="" class="icon-min-size">
-            <p>2 days</p>
-            <div class="status">
-                <!-- x<5 Days Left -->
-                <!-- <div class="outOfRange status-child ">
-                    <p>Warning</p>
-                </div> -->
-                <!-- x>15 days Left -->
-                <div class="safe status-child ">
-                    <p>Safe</p>
-                </div>
-                <!-- 10<x<15 Days left -->
-                <!-- <div class="almost status-child ">
-                    <p>Few Left</p>
-                </div>  -->
-            </div>
-        </div>
-       
-        <p>Slm wlhy mal9it manekteb w haka laurem ely tgeneri ktiba mahabetech te5dem w be5el bech n7el google , donc hay fa9ra mel 7it.</p>
-        <hr>
-        <div class="account-container">
-            <img src="assets/images/user.jpg" alt="" class="icon-user">
-            <div class="account">
-                <h3>Nedra Guessmi</h3>
-                <h5>Human Ressource</h5>
-            </div>
-            
-        </div>
-        <div class="btnHolder" style="justify-content: space-around; text-align: center;">
-            <button class="btnNotify">Accept</button>
-            <button class="btnDanger">Refuse</button>
-        </div> 
-        <hr>
-        <h5>Proof :</h5>
-        <div class="proof">
-            <p>Not Included</p>
-            <img src="assets/icons/close.png" alt="" class="icon-min-size">
-        </div>
-        
-    </div>
-
-</div>

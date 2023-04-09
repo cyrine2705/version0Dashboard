@@ -11,16 +11,17 @@ import { OverviewComponent } from './overview/overview.component';
 import { PresenceComponent } from './presence/presence.component';
 import { ReclamationsComponent } from './reclamations/reclamations.component';
 import { StatsComponent } from './stats/stats.component';
+import { AuthGuard } from '../auth.guard';
 
 const routes: Routes = [
   { path:'navbar', component:NavBarComponent,
-   
+  canActivate: [AuthGuard],
     children:[
       {path:'', redirectTo:'overview', pathMatch:'full'},
      
       {path:'employes', component:EmployesComponent
     },
-      {path:'employes/:idf', component:EmployeComponent},
+      {path:'employes/:id', component:EmployeComponent},
       {path:'presence', component:PresenceComponent},
       {path:'events', component:EventsComponent},
    {path:'events/:idf',component:EventComponent},
