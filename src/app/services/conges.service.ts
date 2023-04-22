@@ -20,4 +20,10 @@ export class CongesService {
    
    return this.http.get<Conge[]>(this.apiBaseUrl,{headers:this.headers});
  }
+ changeCongeState(id:string, state:string, nb:number): Observable<Conge> {
+
+  console.log(state);
+  console.log(nb);
+  return this.http.post<Conge>(`${this.apiBaseUrl}/${id}`, {'etat':state,'nb':nb}, { headers: this.headers });
+}
 }

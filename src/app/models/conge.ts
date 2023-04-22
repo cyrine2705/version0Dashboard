@@ -1,13 +1,13 @@
 import { User } from "./user"
 
 export class Conge {
-    id?:String
+    id?:string
     type?:String
     description?:String
     startDate?:string
    endDate?:string
   proof?:String
-  state?:String
+  state?:string
   idEmploye?:String
  
   

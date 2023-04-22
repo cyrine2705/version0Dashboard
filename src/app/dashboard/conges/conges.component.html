@@ -6,12 +6,13 @@
         <h3>{{c.type}}</h3>
         <div class="time">
             <img src="assets/icons/clock.png" alt="" class="icon-min-size">
-            <p>{{nbrJours(c.startDate,c.endDate)}} days</p>
+            <p>  {{nbrJours(c.startDate,c.endDate)}} days <br>{{c.startDate}}</p>
             <div class="status">
           
                 <div class="almost status-child ">
                     <p>{{c.employee.nbConge}} days left</p>
                 </div> 
+              
             </div>
         </div>
        
@@ -26,14 +27,16 @@
         </div>
         
         <div class="btnHolder" style="justify-content: space-around; text-align: center;">
-            <button class="btnNotify" >Accept</button>
-            <button class="btnDanger">Refuse</button>
+            <button class="btnNotify" (click)="onClick(c.id,'Approuved',nbrJours(c.startDate,c.endDate))">Accept</button>
+            <button class="btnDanger" (click)="onClick(c.id,'Declined',nbrJours(c.startDate,c.endDate))">Refuse</button>
         </div> 
         <hr>
+        <div *ngIf="c.proof!='null'">
         <h5>Proof :</h5>
         <div class="proof">
-            <p>Filename.pdf</p>
+            <p>{{decodeURIComponent(c.proof.substring(c.proof.lastIndexOf('/')+1,c.proof.indexOf('?')))}}</p>
             <a [href]="c.proof" target="_blank">  <img src="assets/icons/download.png" alt="" class="icon"> </a>
+        </div>
         </div>
         </div>
 
