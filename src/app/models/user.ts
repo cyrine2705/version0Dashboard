@@ -8,6 +8,7 @@ export class User {
 birthDate?:Date
 adress?:String
 cin?:number
+role?:string
  phoneNumber1?:number
  phoneNumber2?:number
  image?:String
@@ -19,6 +20,10 @@ nbConge?:number
 startTime?:Time
 	
 	 endTime?:Time
+	 present?:boolean
+	 deviceToken?:string
+	 entryTime?:Time
+	 exitingTime?:Time
 	 resetToken?:String
 	resetTokenExpiration?:Date
 

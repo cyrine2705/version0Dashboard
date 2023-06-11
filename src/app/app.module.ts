@@ -22,6 +22,9 @@ import { MatButtonModule } from "@angular/material/button";
 import { ForgotPasswordComponent } from './Pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Pages/login/reset-password/reset-password.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -38,6 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     EmployeComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    
+
 
   ],
   imports: [
@@ -48,14 +53,20 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule, 
     MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
     MatButtonModule ,MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
+ 
 
  
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy,  }
+    { provide: LocationStrategy, useClass: HashLocationStrategy,  },
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

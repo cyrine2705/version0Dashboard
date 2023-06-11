@@ -1,0 +1,90 @@
+<h2 class="mt">Admin Profile</h2>
+<div class="adminContainer">
+    <div class="head">
+        <div class="infoAdminSec">
+            <h3>{{rh.firstName}} {{rh.lastName}}</h3>
+            <P>{{rh.email}}</P>
+            <h4 >Admin</h4>
+            <hr>
+            <h4>Last Visit : </h4>
+            <h4>Local Time : {{datetime |date:'shortTime'}}</h4>
+        </div>
+        <div class="infoAdmin">
+            <img [src]="rh.image" alt="" class="icon-profile">
+            
+        </div>
+        <div class="infoAdminSec">
+            <button class="update-button">Update</button>
+            <button class="logout-button">Delete</button>
+            <hr>
+            <h3>Contact Support</h3>
+            <P>riahi.yassin@gmail.com</P>
+        </div>
+    </div>
+    <div class="adminBody" hidden>
+        <h3 style="margin-top: 16px ;">Change Infos</h3>
+        <div class="employeeInput">
+            <div class="input-container">
+                <div class="input">
+                    <label for="">Full Name*</label>
+                    <input type="text" value="Nedra Guessmi" class="input-edit" placeholder="Name & Forname">
+                </div>
+                <div class="input">
+                    <label for="">CIN*</label>
+                    <input type="text" value="41144144" class="input-edit" placeholder="">
+                </div>
+
+            </div>
+            <div class="input-container">
+                <div class="input">
+                    <label for="">Email*</label>
+                    <input type="text" value="cyrine.Srairi@gmail.com" class="input-edit" placeholder="expl@mail.domain">
+                </div>
+                <div class="input">
+                    <label for="">Phone Number*</label>
+                    <input type="text" name="" id="" value="14141414" class="input-edit"
+                        placeholder="+(CC) Your Number">
+                </div>
+            </div>
+            <div class="input-container hidden-input">
+                <div class="input">
+                    <label for="">Adress 1*</label>
+                    <input type="text" value="Test asda " class="input-edit" placeholder="Exemple : City Al Bustan">
+                </div>
+                <div class="input">
+                    <label for="">Adress 2</label>
+                    <input type="text" name="" id="" value="azdsaz dazed" class="input-edit" placeholder="(Optinal)">
+                </div>
+            </div>
+            <div class="input-container hidden-input">
+                <div class="input">
+                    <label for="">Change Password</label>
+                    <input type="password" value="zeferfgzerfg" class="input-edit" >
+                </div>
+                <div class="input">
+                    <label for="">Status</label>
+                    <select name="" id="" class="input-edit">
+                        <option value="celib">Celibbataire</option>
+                        <option value="mar">Married</option>
+                        <option value="">Na3rech</option>
+                    </select>
+                </div>
+            </div>
+            <button class="update-button">Save</button>
+            
+    </div>
+    
+    </div>
+    <hr>
+    <h2 class="m-top">AI Training</h2>
+<div class="aiContainer">
+    <img src="assets/icons/ai.png" alt="" class="icon-user">
+    <div class="aiDescreption">
+        <h2>Train your AI Model </h2>
+        <p>Training your model constantly is IMPORTANT</p>
+        
+    </div>
+    <button class="btnTrain" (click)="onclick()">Train</button>
+</div>
+    
+</div>

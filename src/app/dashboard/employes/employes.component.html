@@ -1,4 +1,7 @@
-<h2 class="mt">List of employees</h2>
+<div class="employeeHeader">
+    <h2 class="mt">List of employees</h2>
+    <button class="btnNotify" (click)="add()">New Employee</button>
+</div>
           
                 <table>
                     <tr>
@@ -17,7 +20,7 @@
                         <td>{{employee.phoneNumber1}}</td>
                         <td class="action-table">
                             <img src="../assets/icons/edit.png" alt="" class="icon" (click)="onclick(employee.id)">
-                            <img src="../assets/icons/delete.png" alt="" class="icon" (click)="onclick(employee.id)">
+                            <img src="../assets/icons/delete.png" alt="" class="icon" (click)="onDelete(employee.id)">
                         </td>  
                       </tr>
                  

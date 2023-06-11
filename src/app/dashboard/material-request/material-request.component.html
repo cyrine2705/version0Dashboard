@@ -1,0 +1,23 @@
+<div class="overview-content">
+    <h2>{{idMaterial}} Requests</h2>
+    <table style="margin-top: 36px;">
+        <tr>
+            <th>Full-name</th>
+            <th>Date</th>
+            <th>Quantity</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let m of materialsWithEmployee">
+            <td><a href="">{{m.employee.firstName}}  {{m.employee.lastName}}</a></td>
+            <td>{{m.date}}</td>
+            <td>{{m.quantity}}</td>
+            <td>{{m.description}}</td>
+            <td class="action-table">
+                <img src="/assets/icons/presence.png" alt=""  (click)="onClick(m.id,'Approuved',m.employee.deviceToken)" class="icon-min-size">
+                <img src="/assets/icons/close.png" alt="" (click)="onClick(m.id,'Declined',m.employee.deviceToken)" class="icon-min-close">
+            </td>                   
+        </tr>
+        
+    </table>
+</div>

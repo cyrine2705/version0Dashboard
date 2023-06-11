@@ -1,57 +1,75 @@
-<h2 class="mt">Employee | Nedra Guessmi</h2>
+<h2 class="mt">Employee | {{employee.firstName}} {{employee.lastName}}</h2>
 <div class="profile-container">
     <div class="left-profile">
-        <img src="assets/images/user.jpg" alt="" class="icon-profile">
+        <img [src]="employee.image" alt="" class="icon-profile">
         <div class="profile-main-infos">
-            <h2>Nedra Guessmi</h2>
-            <h4>Developer</h4>
+            <h2>{{employee.firstName}} {{employee.lastName}}</h2>
+            <h4>{{employee.role}}</h4>
             <div class="btnHolder">
                 <button class="btnNotify">Notfiy</button>
                 <button class="btnDanger">Alert</button>
             </div> 
-            
-            <h4>General info</h4>
-            <div class="infoGeneral">
-                <h5>Employment Type</h5>
-                <p>Remote</p>
-            </div>
-            <div class="infoGeneral">
-                <h5>Working Since</h5>
-                <p>29/09/23</p>
-            </div>
-            <div class="infoGeneral">
-                <h5>Salary</h5>
-                <p>1100$</p>
-            </div>
-            <hr>
+      
             <h4 style="margin-top: 8px;">Shifts</h4>
             <div class="infoGeneral">
                 <h5>Start</h5>
-                <p>8:00AM</p>
+                <p>{{employee.startTime}}</p>
             </div>
             <div class="infoGeneral">
                 <h5>End</h5>
-                <p>5:00PM</p>
+                <p>{{employee.endTime}}</p>
             </div>
            
         </div>
     </div>
     <div class="right-profile">
         <div class="action-container">
-            <img src="../src/icons/edit.png" alt="" class="icon edit-icon">
-            <img src="../src/icons/delete.png" alt="" class="icon delete">
+           
+            <img src="/assets/icons/delete.png" alt="" class="icon delete">
         </div>
         <h2>Options</h2>
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" >
         <div class="input-container">
             <div class="input">
-                <label for="">Full Name</label>
-                <input type="text" value="Nedra Guessmi" disabled class="input-edit">
+                <label for="">First Name</label>
+                <input type="text" formControlName="firstName" [(ngModel)]="employee.firstName"  matInput  [errorStateMatcher]="matcher" class="input-edit">
+       
+                    <mat-error class="input-error" *ngIf="employeeForm.get('firstName').hasError('required')">
+                        First name is required.
+                    </mat-error>
+                    <mat-error class="input-error" *ngIf="employeeForm.get('firstName').hasError('minlength')">
+                        First name must be at least 3 characters long
+                      </mat-error>
+                      <mat-error class="input-error" *ngIf="employeeForm.get('firstName').hasError('maxlength')">
+                        First name cannot be more than 15 characters long
+                      </mat-error>
+                      <mat-error class="input-error" *ngIf="employeeForm.get('firstName').hasError('pattern')">
+                        First name must start with a capital letter and contain only letters.
+                      </mat-error>
+                      
+              
+              </div>
+            <div class="input">
+                <label for="">Last Name</label>
+                <input type="text" [(ngModel)]="employee.lastName"formControlName="lastName"  matInput  [errorStateMatcher]="matcher" class="input-edit">
+                <mat-error class="input-error" *ngIf="employeeForm.get('lastName').hasError('required')">
+                    Last name is required.
+                </mat-error>
+                <mat-error class="input-error" *ngIf="employeeForm.get('lastName').hasError('minlength')">
+                    Last name must be at least 3 characters long
+                  </mat-error>
+                  <mat-error class="input-error" *ngIf="employeeForm.get('lastName').hasError('maxlength')">
+                    Last name cannot be more than 15 characters long
+                  </mat-error>
+                  <mat-error class="input-error" *ngIf="employeeForm.get('lastName').hasError('pattern')">
+                    The last name must start with a capital letter and contain only letters and spaces.
+                  </mat-error>
             </div>
             <div class="input">
                 <label for="">Sexe</label>
-                <select name="" id="" disabled class="input-edit">
-                    <option value="">Homme</option>
-                    <option value="" selected>Femme</option>
+                <select  [(ngModel)]="employee.sexe" formControlName="sexe" class="input-edit">
+                    <option value="male">male</option>
+                    <option value="female" >female</option>
                 </select>
             </div>
            
@@ -59,14 +77,18 @@
         <div class="input-container">
             <div class="input">
                 <label for="">Birth Date</label>
-                <input type="date" value="" disabled class="input-edit">
+                <input type="date"  [(ngModel)]="employee.birthDate" formControlName="birthDate" min="1959-01-01" max="2002-12-31"
+                class="input-edit">
+                <mat-error class="input-error" *ngIf="employeeForm.get('birthDate').value < '1959-01-01' || employeeForm.get('birthDate').value > '2002-12-31'">
+                    Please enter a date between 1959-01-01 and 2002-12-31.
+                  </mat-error>
             </div>
             <div class="input">
                 <label for="">Role</label>
-                <select name="" id="" disabled class="input-edit">
-                    <option value="">Developper</option>
-                    <option value="">RH</option>
-                    <option value="">Na3rech</option>
+                <select name="" [(ngModel)]="employee.role"  formControlName="role" class="input-edit">
+                    <option value="EMPLOYE">Employe</option>
+                    <option value="RH">RH</option>
+                    
                 </select>
             </div>
            
@@ -74,88 +96,104 @@
         <div class="input-container">
             <div class="input">
                 <label for="">Email</label>
-                <input type="text" value="NedraGuessmi@gmail.com" disabled class="input-edit">
+                <input type="text" [(ngModel)]="employee.email" formControlName="email" class="input-edit">
+                <mat-error class="input-error" *ngIf="employeeForm.get('email').hasError('required')">
+                    Email is required.
+                  </mat-error>
+                  <mat-error class="input-error" *ngIf="employeeForm.get('email').hasError('email')">
+                    Please enter a valid email address.
+                  </mat-error>
             </div>
             <div class="input">
                 <label for="">Phone Number</label>
-                <input type="text" name="" id="" value="92-999-999" disabled class="input-edit"> 
+                <input type="text" [(ngModel)]="employee.phoneNumber1" formControlName="phoneNumber1"  matInput  [errorStateMatcher]="matcher" class="input-edit"> 
+                <mat-error *ngIf="employeeForm.get('phoneNumber1').hasError('required')">
+                    Phone number is required.
+                </mat-error>
+                <mat-error *ngIf="employeeForm.get('phoneNumber1').hasError('pattern')">
+                    Please enter a valid phone number starting with 9, 5, 4, 3, or 2, followed by 7 digits.
+                </mat-error>
+                
             </div>
         </div>
         <div class="input-container hidden-input">
             <div class="input">
-                <label for="">Salary</label>
-                <input type="text" value="1100" disabled class="input-edit">
-            </div>
-            <div class="input">
-                <label for="">Employment Type</label>
-                <input type="text" name="" id="" value="Remote" class="input-edit" disabled>
-            </div>
-        </div>
-        <div class="input-container hidden-input" >
-            <div class="input">
-                <label for="">CNAM</label>
-                <input type="text" value="154215421542" disabled class="input-edit">
+                <label for="">Phone Number 2 (optional)</label>
+                <input type="text" [(ngModel)]="employee.phoneNumber2" formControlName="phoneNumber2" matInput  [errorStateMatcher]="matcher" class="input-edit">
+               
+                <mat-error class="input-error" *ngIf="employeeForm.get('phoneNumber2').hasError('pattern')&& employeeForm.get('phoneNumber2').touched">
+                    Please enter a valid phone number starting with 9, 5, 4, 3, or 2, followed by 7 digits.
+                </mat-error>
+                
             </div>
             <div class="input">
                 <label for="">CIN</label>
-                <input type="password" name="" id="" value="92-999-999" disabled class=""> 
+                <input type="text" [value]="employee.cin"  disabled> 
             </div>
+           
         </div>
+        
+       
         <div class="input-container hidden-input">
             <div class="input">
-                <label for="">Country</label>
-                <input type="text" value="Tunisie" disabled class="input-edit">
+                <label for="">Adress </label>
+                <input type="text" [(ngModel)]="employee.adress" formControlName="adress"   class="input-edit">
+                <mat-error class="input-error" *ngIf="employeeForm.get('adress').hasError('required')">
+                    Adress is required.
+                </mat-error>
+                <mat-error class="input-error" *ngIf="employeeForm.get('adress').hasError('minlength')">
+                   this adress is too short
+                </mat-error>
+                
             </div>
-            <div class="input">
-                <label for="">State</label>
-                <input type="text" name="" id="" value="Bèja" class="input-edit" disabled>
-            </div>
-        </div>
-        <div class="input-container hidden-input">
-            <div class="input">
-                <label for="">Adress 1</label>
-                <input type="text" value="City Al Bustan" disabled class="input-edit">
-            </div>
-            <div class="input">
-                <label for="">Adress 2</label>
-                <input type="text" name="" id="" value="City Al Bustan" class="input-edit" disabled>
-            </div>
+           
+                <div class="input">
+                    <label for="">Conge Credit</label>
+                    <input type="number"[value]="employee.nbConge" disabled class="input-edit">
+                </div>
+          
         </div>
         <div class="input-container hidden-input" >
-            <div class="input">
-                <label for="">Conge Credit</label>
-                <input type="number" value="20" disabled class="input-edit">
-            </div>
+            
             <div class="input">
                 <label for="">Status</label>
-                <select name="" id="" disabled class="input-edit">
-                    <option value="celib">Celibbataire</option>
-                    <option value="mar">Married</option>
-                    <option value="">Na3rech</option>
+                <select [(ngModel)]="employee.situation" formControlName="situation" class="input-edit">
+                    <option value="single">single</option>
+                    <option value="married">married</option>
                 </select>
             </div>
-        </div>
-        <div class="input-container hidden-input" >
             <div class="input">
                 <label for="">Kids</label>
-                <input type="number" value="0" disabled class="input-edit">
-            </div>
-            <div class="input">
-                <label for="">Password</label>
-                <input type="password" value="28/06/03" disabled class="input-edit">
+                <input type="number" [(ngModel)]="employee.nbEnfants" formControlName="nbEnfants" max="10" min="0" class="input-edit">
             </div>
         </div>
+        
         <div class="input-container hidden-input" >
             <div class="input">
                 <label for="">Start Time</label>
-                <input type="time" value="0" disabled class="input-edit">
+                <input type="time" [(ngModel)]="employee.startTime" formControlName="startTime"  class="input-edit">
+                <mat-error class="input-error" *ngIf="employeeForm.get('startTime').hasError('required')">
+                    Start time is required.
+                </mat-error>
+                <mat-error class="input-error" *ngIf="employeeForm.get('startTime').hasError('pattern') && employeeForm.get('endTime').touched">
+                    Start time is invalid
+                </mat-error>
             </div>
             <div class="input">
                 <label for="">End Time</label>
-                <input type="time" value="28/06/03" disabled class="input-edit">
+                <input type="time" [(ngModel)]="employee.endTime" formControlName="endTime" class="input-edit">
+                <mat-error class="input-error" *ngIf="employeeForm.get('endTime').hasError('required')">
+                    End time is required.
+                </mat-error>
+                <mat-error class="input-error" *ngIf="employeeForm.get('endTime').hasError('pattern') && employeeForm.get('endTime').touched">
+                    End time is invalid. Please enter a valid time in the format HH:MM.
+                </mat-error>
             </div>
+            
         </div>
-        <button class="update-button show-more">Show More</button>
-        <button class="update-button">Update</button>
+     
+        <button class="update-button" type="submit" [disabled]="!employeeForm.dirty || employeeForm.invalid">Update</button>
+        </form>
     </div>
+    
 </div>

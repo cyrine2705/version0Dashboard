@@ -27,8 +27,8 @@
         </div>
         
         <div class="btnHolder" style="justify-content: space-around; text-align: center;">
-            <button class="btnNotify" (click)="onClick(c.id,'Approuved',nbrJours(c.startDate,c.endDate))">Accept</button>
-            <button class="btnDanger" (click)="onClick(c.id,'Declined',nbrJours(c.startDate,c.endDate))">Refuse</button>
+            <button class="btnNotify" (click)="onClick(c.id,'Approuved',nbrJours(c.startDate,c.endDate),c.employee.deviceToken)">Accept</button>
+            <button class="btnDanger" (click)="onClick(c.id,'Declined',nbrJours(c.startDate,c.endDate),c.employee.deviceToken)">Refuse</button>
         </div> 
         <hr>
         <div *ngIf="c.proof!='null'">

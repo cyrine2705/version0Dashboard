@@ -1,47 +1,64 @@
 <h2 class="mt">Add an Event</h2>
 <div class="adminContainer">
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
     <div class="addEvent">
+        
+        <div class="input-container input-container-event">
+            <div class="input">
+                <label for="">Type*</label>
+                <select  formControlName="type" class="input-edit" >
+                    <option value="meeting" selected>Meeting</option>
+                    <option value="event" >Event</option>
+                </select>
+                <mat-error class="input-error" *ngIf="eventForm.get('type').hasError('required')&& eventForm.get('type').touched">
+                    type is required.
+                </mat-error>
+            </div>
+          
+        </div>
         <div class="input-container input-container-event" >
             <div class="input">
                 <label for="">Subject*</label>
-                <input type="text" value="" class="input-edit" placeholder="Write down the subject">
+                <input type="text"formControlName="title" class="input-edit" placeholder="Write down the subject">
+                <mat-error class="input-error" *ngIf="eventForm.get('title').hasError('required')&& eventForm.get('title').touched">
+                    title is required.
+                </mat-error>
             </div>
             <div class="input">
                 <label for="">Event details*</label>
-                <input type="text" value="" class="input-edit" placeholder="Describe the event">
+                <input type="text" formControlName="description"  class="input-edit" placeholder="Describe the event">
+                <mat-error class="input-error" *ngIf="eventForm.get('description').hasError('required')&& eventForm.get('description').touched">
+                    description is required.
+                </mat-error>
+                
             </div>
             
 
         </div>
         <div class="input-container">
             <div class="input">
-                <label for="">Date*</label>
-                <input type="date" value="" class="input-edit" placeholder="DD/HH/MM">
+                <label for="">From*</label>
+                <input type="datetime-local"  formControlName="from"  class="input-edit" placeholder="DD/HH/MM">
+                <mat-error class="input-error" *ngIf="eventForm.get('from').hasError('required')&& eventForm.get('from').touched">
+                    start date is required.
+                </mat-error>
             </div>
             <div class="input">
-                <label for="">For*</label>
-                <select name="" id="" class="input-edit">
-                    <option value="" selected>Everyone</option>
-                    <option value="" >Developers</option>
-                    <option value="" >RH</option>
-                    <option value="">Workers</option>
-                </select>
+               
+                    <label for="">To*</label>
+                    <input type="datetime-local" formControlName="to" class="input-edit" placeholder="DD/HH/MM">
+                    <mat-error class="input-error" *ngIf="eventForm.get('to').hasError('required')&& eventForm.get('to').touched">
+                        end date  is required.
+                    </mat-error>
+                    <mat-error class="input-error" *ngIf="eventForm.get('to').hasError('timeRange')">
+                        start date shouldnt be greater than end date .
+                       </mat-error>
+                    
             </div>
         </div>
-        <div class="input-container input-container-event">
-            <div class="input">
-                <label for="">Mode*</label>
-                <select name="" id="selectMode" class="input-edit" onchange="showZoom()">
-                    <option value="" selected>Presentielle</option>
-                    <option value="" >Online</option>
-                </select>
-            </div>
-            <div class="input input-zoom" hidden>
-                <label for="">Zoom Link*</label>
-                <input type="text" name="" id="" value="" class="input-edit"
-                    placeholder="Paste the meet link here">
-            </div>
-        </div>
-        <button class="update-button show-more">Add</button>
+      
+        <button class="update-button " [disabled]="eventForm.invalid">Add</button>
+   
     </div>
+</form>
 </div>

@@ -2,42 +2,23 @@
       
                     <table>
                         <tr>
-                            <th>Picture</th>
+                          
                             <th>Full-name</th>
                             <th>Role</th>
-                            <th>Entery Date</th>
-                            <th>Leave Date</th>
+                            <th>Entery DateTime</th>
+                            <th>Leave DateTime</th>
                             <th>Actions</th>
                         </tr>
-                        <tr>
-                            <td><img src="assets/images/user.jpg" alt="" class="icon-user"></td>
-                            <td>Cyrine Srairi</td>
-                            <td>19-06-2023</td>
-                            <td>29-08-2023</td>
-                            <td>-</td>
+                        <tr *ngFor="let e of  presentEmployees"> 
+                           
+                            <td>{{e.firstName}} {{e.lastName}}</td>
+                            <td>{{e.role}}</td>
+                            <td>{{e.entryTime}}</td>
+                            <td>{{e.exitingTime}}</td>
                             <td class="action-table">
-                                <p><a (click)="onclick()">Consult Profile</a></p>
+                                <p><a (click)="onclick(e.id)">Consult Profile</a></p>
                             </td>            
                         </tr>
-                        <tr>
-                            <td><img src="assets/images/user.jpg" alt="" class="icon-user"></td>
-                            <td>Cyrine Srairi</td>
-                            <td>19-06-2023</td>
-                            <td>29-08-2023</td>
-                            <td>-</td>
-                            <td class="action-table">
-                                <p><a (click)="onclick()">Consult Profile</a></p>
-                            </td>            
-                        </tr>
-                        <tr>
-                            <td><img src="assets/images/user.jpg" alt="" class="icon-user"></td>
-                            <td>Cyrine Srairi</td>
-                            <td>19-06-2023</td>
-                            <td>29-08-2023</td>
-                            <td>-</td>
-                            <td class="action-table">
-                                <p><a (click)="onclick()">Consult Profile</a></p>
-                            </td>            
-                        </tr>
+                        
                     </table>
          

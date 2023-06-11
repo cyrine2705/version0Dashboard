@@ -12,6 +12,10 @@ import { PresenceComponent } from './presence/presence.component';
 import { ReclamationsComponent } from './reclamations/reclamations.component';
 import { StatsComponent } from './stats/stats.component';
 import { AuthGuard } from '../auth.guard';
+import { MaterialRequestComponent } from './material-request/material-request.component';
+import { AddEmployeComponent } from './add-employe/add-employe.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 const routes: Routes = [
   { path:'navbar', component:NavBarComponent,
@@ -22,14 +26,17 @@ const routes: Routes = [
       {path:'employes', component:EmployesComponent
     },
       {path:'employes/:id', component:EmployeComponent},
+      {path:'employes/add/:id', component:AddEmployeComponent},
+      {path:'rh/profile/:admin', component:AdminProfileComponent},
       {path:'presence', component:PresenceComponent},
       {path:'events', component:EventsComponent},
-   {path:'events/:idf',component:EventComponent},
-     
+      {path:'events/:idf',component:EventComponent},
+      {path:'events/edit/:ev',component:EditEventComponent},
       {path:'overview', component: OverviewComponent},
       {path:'reclamations', component:ReclamationsComponent },
       {path:'conges', component:CongesComponent},
       {path:'material', component:MaterialComponent},
+      {path:'material/:idfs', component:MaterialRequestComponent},
       {path:'stats', component:StatsComponent}
     ], runGuardsAndResolvers: 'always'}
 ];

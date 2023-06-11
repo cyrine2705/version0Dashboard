@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { EmployesService } from 'src/app/services/employes.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -20,8 +22,18 @@ export class NavBarComponent {
   ];
   showNotifications: boolean=false;
   selectedElement: any;
-
-  constructor(private router: Router) {}
+  rh: User = {
+  };
+  constructor(private router: Router,private employesService: EmployesService) {}
+  ngOnInit(): void {
+   
+    this.getEmployee();
+   }
+   getEmployee(): void {
+    this.employesService.getEmploye(localStorage.getItem('idRh'))
+      .subscribe(employee => this.rh= employee);
+  }
+ 
   show(): void {
 
     this.showNotifications=!this.showNotifications;

@@ -34,6 +34,8 @@ export class LoginComponent {
         console.log(data);
         localStorage.removeItem('jwtToken');
         localStorage.setItem('jwtToken', data['token'].toString());
+        localStorage.removeItem('idRh');
+        localStorage.setItem('idRh', data['id'].toString());
         this.router.navigate(['navbar'])}
         else{console.log(data['msg']);
         this.errorMessage =data['msg'];

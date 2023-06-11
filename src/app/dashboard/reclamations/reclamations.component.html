@@ -1,27 +1,9 @@
 <h2 class="mt">Reclamation</h2>
 <div class="reclamation-container">
-    <div class="rec-card">
-        <h2>Software Problem</h2>
-        <h4>Sent by : Riahi Yassin</h4>
-        <p>Hello , this is just a test Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel officiis consequatur a dolores, nulla praesentium reprehenderit earum? Doloribus, praesentium asperiores vero vel possimus dolore ratione iusto, impedit quo optio laudantium!</p>
-        <div class="button-card">
-            <button>Received</button>
-            <button>Delete</button>
-        </div>
-    </div>
-    <div class="rec-card">
-        <h2>Software Problem</h2>
-        <h4>Sent by : Riahi Yassin</h4>
-        <p>Hello , this is just a test Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel officiis consequatur a dolores, nulla praesentium reprehenderit earum? Doloribus, praesentium asperiores vero vel possimus dolore ratione iusto, impedit quo optio laudantium!</p>
-        <div class="button-card">
-            <button>Received</button>
-            <button>Delete</button>
-        </div>
-    </div>
-    <div class="rec-card">
-        <h2>Software Problem</h2>
-        <h4>Sent by : Riahi Yassin</h4>
-        <p>Hello , this is just a test Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel officiis consequatur a dolores, nulla praesentium reprehenderit earum? Doloribus, praesentium asperiores vero vel possimus dolore ratione iusto, impedit quo optio laudantium!</p>
+    <div  *ngFor="let r of reclamsWithEmployee"  class="rec-card">
+        <h2>{{r.topic}}</h2>
+        <h4>Sent by : {{r.employee.lastName}} {{r.employee.firstName}}</h4>
+        <p>{{r.description}}</p>
         <div class="button-card">
             <button>Received</button>
             <button>Delete</button>

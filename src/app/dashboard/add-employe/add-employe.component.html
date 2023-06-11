@@ -1,0 +1,213 @@
+<h2 class="mt">New Employee</h2>
+<h3 class="info">Some data can't be changed, Caution !</h3>
+<div class="profile-container">
+    <div class="employeeInput">
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="input-container hidden-input" >
+           <h3>Choose A Professional Image*</h3>
+           <input type="file" id="upload-container"  (change)="onFileSelected($event)"  >
+        </div>
+        <div class="input-container">
+            <div class="input">
+                <label for="">First Name*</label>
+                <input type="text" formControlName="firstName"   matInput  [errorStateMatcher]="matcher" class="input-edit">
+       
+                <mat-error class="input-error" *ngIf="employeeForm.get('firstName').hasError('required')&& employeeForm.get('firstName').touched">
+                    First name is required.
+                </mat-error>
+                <mat-error class="input-error" *ngIf="employeeForm.get('firstName').hasError('minlength')">
+                    First name must be at least 3 characters long
+                  </mat-error>
+                  <mat-error class="input-error" *ngIf="employeeForm.get('firstName').hasError('maxlength')">
+                    First name cannot be more than 15 characters long
+                  </mat-error>
+                  <mat-error class="input-error" *ngIf="employeeForm.get('firstName').hasError('pattern')">
+                    First name must start with a capital letter and contain only letters.
+                  </mat-error>
+            </div>
+            <div class="input">
+                <label for="">Last Name*</label>
+                <input type="text" formControlName="lastName"  matInput  [errorStateMatcher]="matcher" class="input-edit">
+                <mat-error class="input-error" *ngIf="employeeForm.get('lastName').hasError('required')&& employeeForm.get('lastName').touched">
+                    Last name is required.
+                </mat-error>
+                <mat-error class="input-error" *ngIf="employeeForm.get('lastName').hasError('minlength')">
+                    Last name must be at least 3 characters long
+                  </mat-error>
+                  <mat-error class="input-error" *ngIf="employeeForm.get('lastName').hasError('maxlength')">
+                    Last name cannot be more than 15 characters long
+                  </mat-error>
+                  <mat-error class="input-error" *ngIf="employeeForm.get('lastName').hasError('pattern')">
+                    The last name must start with a capital letter and contain only letters and spaces.
+                  </mat-error>
+            </div>
+           
+
+        </div>
+        <div class="input-container">
+            <div class="input">
+                <label for="">Sexe*</label>
+                <select formControlName="sexe"  class="input-edit">
+                    <option value="male">Male</option>
+                    <option value="female" selected>female</option>
+                    <mat-error class="input-error" *ngIf="employeeForm.get('sexe').hasError('required')&& employeeForm.get('sexe').touched">
+                        Sexe is required.
+                       </mat-error>
+                    
+                </select>
+            </div>
+            <div class="input">
+                <label for="">Birth Date*</label>
+                <input type="date"  formControlName="birthDate" min="1959-01-01" max="2002-12-31"
+                class="input-edit">
+                <mat-error class="input-error" *ngIf="employeeForm.get('birthDate').value < '1959-01-01' || employeeForm.get('birthDate').value > '2002-12-31' && employeeForm.get('birthDate').touched">
+                    Please enter a date between 1959-01-01 and 2002-12-31.
+                  </mat-error>
+            </div>
+          
+
+        </div>
+        <div class="input-container">
+            <div class="input">
+                <label for="">Role*</label>
+                <select name=""  class="input-edit" formControlName="role" >
+                    <option value="EMPLOYE">Employe</option>
+                    <option value="RH">RH</option>
+                    <mat-error class="input-error" *ngIf="employeeForm.get('role').hasError('required')&& employeeForm.get('role').touched">
+                       role is required.
+                      </mat-error>
+                </select>
+            </div>
+            <div class="input">
+                <label for="">Email*</label>
+                <input type="text" formControlName="email" class="input-edit">
+                <mat-error class="input-error" *ngIf="employeeForm.get('email').hasError('required')&& employeeForm.get('email').touched">
+                    Email is required.
+                  </mat-error>
+                  <mat-error class="input-error" *ngIf="employeeForm.get('email').hasError('email')">
+                    Please enter a valid email address.
+                  </mat-error>
+            </div>
+           
+        </div>
+
+        <div class="input-container hidden-input">
+            <div class="input">
+                <label for="">Phone Number 1*</label>
+                <input type="tel"  formControlName="phoneNumber1"  matInput  [errorStateMatcher]="matcher" class="input-edit"> 
+                <mat-error class="input-error"  *ngIf="employeeForm.get('phoneNumber1').hasError('required')&& employeeForm.get('phoneNumber1').touched">
+                    Phone number is required.
+                </mat-error>
+                <mat-error class="input-error"  *ngIf="employeeForm.get('phoneNumber1').hasError('pattern')&& employeeForm.get('phoneNumber1').touched">
+                    Please enter a valid phone number starting with 9, 5, 4, 3, or 2, followed by 7 digits.
+                </mat-error>
+            </div>
+            <div class="input">
+                <label for="">Phone Number 2 (optional)</label>
+                <input type="tel" formControlName="phoneNumber2" matInput [errorStateMatcher]="matcher" class="input-edit">
+               
+                <mat-error class="input-error" *ngIf="employeeForm.get('phoneNumber2').hasError('pattern')">
+                  Please enter a valid phone number starting with 9, 5, 4, 3, or 2, followed by 7 digits.
+                </mat-error>
+                <mat-error class="input-error" *ngIf="employeeForm.get('phoneNumber2').hasError('phoneNumbersMustBeDifferent')&& employeeForm.get('phoneNumber2').touched">
+                    Phone numbers must be different.
+                  </mat-error>
+              </div>
+              
+          
+        </div>
+       
+        
+        <div class="input-container hidden-input">
+            <div class="input">
+                <label for="">Address *</label>
+                <input type="text" formControlName="adress"   class="input-edit">
+                <mat-error class="input-error" *ngIf="employeeForm.get('adress').hasError('required')&& employeeForm.get('adress').touched">
+                    Adress is required.
+                </mat-error>
+                <mat-error class="input-error" *ngIf="employeeForm.get('adress').hasError('minlength')">
+                   this adress is too short
+                </mat-error>
+            </div>
+        
+        </div>
+    
+    
+        <div class="input-container hidden-input">
+            <div class="input">
+               
+                    <label for="">CIN*</label>
+                    <input type="tel" formControlName="cin"  placeholder="Safe Field">
+                    <mat-error class="input-error"  *ngIf="employeeForm.get('cin').hasError('required')&& employeeForm.get('cin').touched">
+                        Cin is required.
+                    </mat-error>
+                    <mat-error class="input-error"  *ngIf="employeeForm.get('cin').hasError('pattern')">
+
+                         Please enter a valid cin number starting with 1  or 0, followed by 7 digits.
+                    </mat-error>
+                </div>
+            <div class="input">
+                <label for="">Conge Credit</label>
+                <input type="number" value="20"  class="input-edit" disabled>
+            </div>
+ 
+        
+         </div>
+     
+        <div class="input-container hidden-input">
+            <div class="input">
+                <label for="">Status</label>
+                <select formControlName="situation"  class="input-edit">
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <mat-error class="input-error"  *ngIf="employeeForm.get('situation').hasError('required')">
+                        status is required.
+                    </mat-error>
+                </select>
+            </div>
+            <div class="input">
+                <label for="">Kids</label>
+                <input type="number" value="0" class="input-edit" formControlName="nbEnfants" min="0" max="10">
+                <mat-error class="input-error"  *ngIf="employeeForm.get('nbEnfants').hasError('required')&& employeeForm.get('nbEnfants').touched">
+                    Kids is required.
+                </mat-error>
+            </div>
+          
+        </div>
+   
+        <div class="grayContainer">
+            <h3>Shifts</h3>
+            <div class="input-container hidden-input">
+            <div class="input">
+                <label for="">Start</label>
+                <input type="time"formControlName="startTime"  step="2"  class="input-edit">
+                <mat-error class="input-error"  class="input-error" *ngIf="employeeForm.get('startTime').hasError('required') && employeeForm.get('startTime').touched">
+                    Start time is required.
+                </mat-error>
+                <mat-error class="input-error" *ngIf="employeeForm.get('startTime').hasError('pattern') && employeeForm.get('startTime').touched">
+                    Start time is invalid. Please enter a valid time in the format HH:MM:SS.
+                </mat-error>
+            </div>
+            <div class="input">
+                <label for="">Leave</label>
+                <input type="time" step="2" formControlName="endTime" class="input-edit">
+                <mat-error class="input-error"  class="input-error" *ngIf="employeeForm.get('endTime').hasError('required') && employeeForm.get('startTime').touched">
+                    Start time is required.
+                </mat-error>
+                <mat-error class="input-error" *ngIf="employeeForm.get('endTime').hasError('pattern') && employeeForm.get('endTime').touched">
+                    End time is invalid. Please enter a valid time in the format HH:MM:SS.
+                </mat-error>
+                <mat-error class="input-error" *ngIf="employeeForm.get('endTime').hasError('timeRange')">
+                   start time shouldnt be greater than end time .
+                  </mat-error>
+
+            </div>
+        </div>
+        </div>
+
+        
+        <button class="update-button"[disabled]="employeeForm.invalid">Add</button>
+        
+    </form>
+  

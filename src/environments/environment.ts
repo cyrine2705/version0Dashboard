@@ -4,7 +4,17 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080/'
+  apiBaseUrl: 'http://localhost:3000/',
+  firebase: {
+  apiKey: "AIzaSyACEgsdv0s6JiuqPd1HS9MbdUaGyiP6Trs",
+  authDomain: "projet-pfe-3850d.firebaseapp.com",
+  databaseURL: "https://projet-pfe-3850d-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "projet-pfe-3850d",
+  storageBucket: "projet-pfe-3850d.appspot.com",
+  messagingSenderId: "363034307864",
+  appId: "1:363034307864:web:1e1a37c93db15492c4026d",
+  measurementId: "G-940MHKZ5G2"
+  },
 };
 
 /*

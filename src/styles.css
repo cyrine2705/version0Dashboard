@@ -626,9 +626,23 @@ td a:hover {
     -o-transition: 0.2s;
 }
 
-.update-button:hover {
-    background-color: var(--darkPurple);
-    box-shadow: 0 2px 10px 0.2px var(--lightPurple);
+
+
+.update-button:hover:not([disabled]) {
+    box-shadow: 0 0 20px 1px var(--lightPurple);
+}
+
+.update-button:disabled {
+    opacity: 0.5; /* reduce opacity of disabled button */
+    cursor: not-allowed; /* change cursor to not-allowed */
+}
+
+.update-button:disabled:hover {
+    box-shadow: none; /* remove hover effect on disabled button */
+}
+.error {
+    border:1px solid  red;
+
 }
 @media screen and (max-width:800px) {
     .profile-container {
@@ -1546,6 +1560,42 @@ td a:hover {
 .logout-button:hover {
     background-color: rgba(255, 0, 0, 0.768);
 }
+.durationTitle {
+    color: black;
+}
+.aiContainer {
+    height: 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid white;
+    margin-top: 16px;
+    border-radius: 8px;
+    background-image: url(assets/images/aibackground.avif);
+    background-size: cover;
+    color: white;
+}
+.aiContainer img {
+    filter: invert();
+    width: 50px;
+    height: 50px;
+}
+.btnTrain {
+    font-weight: bold;
+    width: 90px;
+    height: 40px;
+    border-radius: 4px;
+    border:none;
+    background-color:white;
+    color: #4f29f0;
+    cursor: pointer;
+}
+.m-top {
+    margin-top: 32px;
+}
+
 
 @font-face {
     font-family: 'Poppins-Normal';
